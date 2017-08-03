@@ -1,0 +1,53 @@
+<h3>URL</h3>
+
+<a href="http://research.microsoft.com/asirra/WordPressPlugin/">http://research.microsoft.com/asirra/WordPressPlugin/</a>
+<a href="http://research.microsoft.com/asirra/WordPressPlugin/asirra-wordpress-plugin-1.1.tgz">http://research.microsoft.com/asirra/WordPressPlugin/asirra-wordpress-plugin-1.1.tgz</a>
+
+<h3>Installation</h3>
+<ol>
+
+<li>You must have the php curl module installed. On debian, for example:
+
+<pre>
+	apt-get install php4-curl
+</pre>
+
+<li>Unpack the plugin:
+
+<pre>
+	cd /path-to/my-wordpress-blog
+	tar -C wp-content/plugins/ -xzf asirra-wordpress-plugin-1.1.tgz
+</pre>
+
+<li>Insert the following line in your comments.php file, inside the
+	&lt;form&gt; tag.  I suggest inserting it before the
+	&lt;input ... value="Submit Comment"&gt;
+	button to place the Asirra box at the end of the comment form:
+
+<pre>
+	&lt;?php display_asirra(); ?&gt; 
+</pre>
+
+<li>Fix comments.php. Change the id and name of the submit input element
+	to something other than "submit" (which masks the JavaScript form.submit()
+	function).
+
+	<pre>
+	&lt;p&gt;&lt;input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" /&gt;
+	</pre>
+
+	becomes:
+
+	<pre>
+	&lt;p&gt;&lt;input name="<b><i>submitBtn</i></b>" type="submit" id="<b><i>submitBtn</i></b>" tabindex="5" value="Submit Comment" /&gt;
+	</pre>
+	
+
+<li>Activate the plugin using the WordPress admin interface: Under the
+	Plugins tab, click "Activate" on the Asirra row.
+</ol>
+
+<h3>Non-License</h3>
+
+This wordpress plugin (the two .php files and the .js file) are in the
+public domain.
